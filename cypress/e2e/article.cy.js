@@ -16,6 +16,7 @@ describe('Creating an article', () => {
 
   it('should allow to create new article', () => {
     cy.register(user.username, user.email, user.password);
+    cy.login(user.email, user.password);
     cy.reload();
     cy.contains('.nav-link', 'New Article').click();
 
@@ -32,6 +33,7 @@ describe('Creating an article', () => {
 
   it('should allow to delete an article', () => {
     cy.register(user2.username, user2.email, user2.password);
+    cy.login(user2.email, user2.password);
     cy.reload();
 
     cy.createArticle(article.title, article.description, article.body);
